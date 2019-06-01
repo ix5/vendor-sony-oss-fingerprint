@@ -7,9 +7,16 @@ LOCAL_INIT_RC := android.hardware.biometrics.fingerprint@2.1-service.sony.rc
 LOCAL_PROPRIETARY_MODULE := true
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_SRC_FILES := \
-    $(call all-subdir-cpp-files) \
+    BiometricsFingerprint.cpp \
+    BiometricsFingerprint_efp.cpp \
+    EGISAPTrustlet.cpp \
+    EgisFpDevice.cpp \
+    EgisOperationLoops.cpp \
     QSEEComFunc.c \
-    common.c
+    QSEEKeymasterTrustlet.cpp \
+    QSEETrustlet.cpp \
+    common.c \
+    service.cpp
 
 ifeq ($(filter-out loire tone,$(SOMC_PLATFORM)),)
 LOCAL_SRC_FILES += fpc_imp_loire_tone.c
